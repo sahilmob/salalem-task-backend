@@ -22,7 +22,7 @@ class SongType(DjangoObjectType):
 class Query(object):
     all_artists = graphene.List(ArtistType)
     artist_all_albums = graphene.List(AlbumType, artist=graphene.Int())
-    album_all_songs = graphene.List(AlbumType, album=graphene.Int())
+    album_all_songs = graphene.List(SongType, album=graphene.Int())
 
     def resolve_all_artists(self, info, **kwargs):
         return Artist.objects.all()
